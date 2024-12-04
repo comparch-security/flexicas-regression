@@ -14,8 +14,8 @@
 #define L2WN 8
 
 int main() {
-  using remap_gen = ct::remap::types<L2IW, L2WN, Data64B, ReplaceSRRIP, policy_memory, void, true>;
-  using policy_l2 = MSIPolicy<false, true, policy_memory>;
+  using remap_gen = ct::remap::types<L2IW, L2WN, 1, Data64B, ReplaceSRRIP, policy_memory, void, true>;
+  using policy_l2 = remap_gen::policy_type;
   using policy_l1d = MSIPolicy<true, false, policy_l2>;
   using policy_l1i = MSIPolicy<true, true, policy_l2>;
   auto l1d = cache_gen_l1<L1IW, L1WN, Data64B, MetadataBroadcastBase, ReplaceLRU, MSIPolicy, policy_l1d, false, void, true>(NCore, "l1d");
