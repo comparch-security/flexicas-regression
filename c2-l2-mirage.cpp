@@ -17,7 +17,7 @@
 #define L2RN 2
 
 int main() {
-  using mirage_gen = ct::mirage::types<L2IW, L2WN, L2EW, L2P, L2RN, Data64B, true, ReplaceSRRIP, ReplaceRandom, policy_memory, void, true, true>;
+  using mirage_gen = ct::mirage::types<L2IW, L2WN, L2EW, L2P, L2RN, Data64B, false, ReplaceSRRIP, ReplaceRandom, policy_memory, void, true, true>;
   using policy_l2 = mirage_gen::policy_type;
   using policy_l1d = MSIPolicy<true, false, policy_l2>;
   using policy_l1i = MSIPolicy<true, true, policy_l2>;
